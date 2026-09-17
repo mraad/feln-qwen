@@ -1,0 +1,12 @@
+# Export LAYERS_JSON_REPOSITORY locally before installation; see docs/CONFIGURATION.md.
+# Install the pinned local feln source archive separately: pip install ./feln
+annotated-types==0.8.0
+duckdb==1.5.3
+numpy==2.5.3
+pydantic==2.13.5
+pydantic_core==2.46.5
+pytz==2026.3.post1
+sqlglot==30.18.0
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+layers-json @ ${LAYERS_JSON_REPOSITORY}@32d6d4ea57975a05552f2ade840cf2085ff25ed1

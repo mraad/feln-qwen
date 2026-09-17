@@ -1,0 +1,22 @@
+[Unit]
+Description=FELN fine-tuned Qwen local model
+After=network.target
+
+[Service]
+# Generic account: configure the actual existing account in a local systemd drop-in.
+# See docs/CONFIGURATION.md; this is not the recorded deployment identity.
+User=feln
+WorkingDirectory=/data/feln-qwen-20260917
+ExecStart=/data/src/llama.cpp/build/bin/llama-server -m /data/feln-qwen-20260917/model.gguf -c 4096 -np 1 -ngl 99 --host 127.0.0.1 --port 18092 --no-webui
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
+ReadWritePaths=/data/feln-qwen-20260917/logs
+StandardOutput=append:/data/feln-qwen-20260917/logs/model.log
+StandardError=append:/data/feln-qwen-20260917/logs/model.log
+
+[Install]
+WantedBy=multi-user.target

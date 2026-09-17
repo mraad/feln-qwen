@@ -1,0 +1,25 @@
+[Unit]
+Description=FELN Qwen local application
+After=network.target feln-qwen-model.service
+Requires=feln-qwen-model.service
+
+[Service]
+# Generic account: configure the actual existing account in a local systemd drop-in.
+# See docs/CONFIGURATION.md; this is not the recorded deployment identity.
+User=feln
+WorkingDirectory=/data/feln-qwen-20260917
+Environment=PYTHONPATH=/data/feln-qwen-20260917/app
+Environment=FELN_ROOT=/data/feln-qwen-20260917
+ExecStart=/data/feln-qwen-20260917/venv/bin/python /data/feln-qwen-20260917/serving/app.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
+ReadWritePaths=/data/feln-qwen-20260917/logs
+StandardOutput=append:/data/feln-qwen-20260917/logs/app.log
+StandardError=append:/data/feln-qwen-20260917/logs/app.log
+
+[Install]
+WantedBy=multi-user.target

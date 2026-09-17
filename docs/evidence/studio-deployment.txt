@@ -1,0 +1,54 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+Thu Sep 17 14:00:29 UTC 2026
+MainPID=136335
+Id=feln-studio.service
+ActiveState=active
+UnitFileState=enabled
+
+MainPID=123809
+Id=feln-qwen-model.service
+ActiveState=active
+UnitFileState=enabled
+
+MainPID=123810
+Id=feln-qwen-app.service
+ActiveState=active
+UnitFileState=enabled
+MainPID=136753
+MemoryCurrent=40103936
+MemoryPeak=41848832
+Id=feln-studio.service
+ActiveState=active
+SubState=running
+UnitFileState=enabled
+
+MainPID=123809
+MemoryCurrent=671948800
+MemoryPeak=673189888
+Id=feln-qwen-model.service
+ActiveState=active
+SubState=running
+UnitFileState=enabled
+
+MainPID=123810
+MemoryCurrent=133324800
+MemoryPeak=175169536
+Id=feln-qwen-app.service
+ActiveState=active
+SubState=running
+UnitFileState=enabled
+Python 3.13.15
+annotated-types==0.8.0
+feln @ file:///data/feln-studio-20260917/feln
+layers-json @ ${LAYERS_JSON_REPOSITORY}@32d6d4ea57975a05552f2ade840cf2085ff25ed1
+numpy==2.5.3
+pydantic==2.13.5
+pydantic-core==2.46.5
+python-dotenv==1.2.3
+sqlglot==30.18.0
+typing-extensions==4.16.0
+typing-inspection==0.4.4
+9e63915e9e830c64dc8cb236e409aed0af50064e0dc2af7784046bcc40ff90b8  /data/feln-studio-20260917/feln-studio-03123e4.tar
+2b8387f973119da3c057731be02139402fa5305ca745909103ff2d8fdbf87da9  /data/feln-studio-20260917/feln.tar
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      5          127.0.0.1:8766      0.0.0.0:*

@@ -1,0 +1,4 @@
+Thu Sep 17 13:14:22 UTC 2026
+index, name, memory.used [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 0 %
+1, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 0 %

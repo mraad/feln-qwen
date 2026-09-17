@@ -1,0 +1,29 @@
+Working-tree privacy cleanup checks, 2026-09-17
+
+Scope: current tracked project files plus .env.example and CONFIGURATION.md.
+Known account names, home paths, host addresses, key filename and repository owner:
+  0 matches after redaction.
+Common private-key, GitHub-token and AWS access-key patterns:
+  0 matches in scanned current text files.
+Historical evidence JSON:
+  31 files byte-identical to pre-cleanup HEAD; all parse successfully.
+Studio screenshot:
+  Unchanged; SHA-256 f01e4428f5566b733a8f97386035e067427f9d5782bb90e3d2b42a2d9b99e673.
+pip requirement parsing:
+  Both serving requirements expand LAYERS_JSON_REPOSITORY and retain revision
+  32d6d4ea57975a05552f2ade840cf2085ff25ed1.
+uv 0.12.15 requirement parsing:
+  URL expansion verified in an offline dry run; expected fetch refusal.
+  No package installed and no network fetch performed.
+Documentation shell blocks:
+  27 blocks pass sh -n; .env.example also passes.
+Ignore rules:
+  .env and .env.production ignored; .env.example remains trackable.
+git diff --check:
+  Passed.
+Disposable generated caches containing local paths:
+  4 files removed; no dataset or model artifact removed.
+
+This is a targeted scan, not a guarantee of absence of all possible personal data.
+Git history/metadata, ignored source archives and datasets, remote deployments,
+original data, and sibling repositories remain unchanged. See CONFIGURATION.md.

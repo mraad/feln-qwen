@@ -1,0 +1,18 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+annotated-types==0.8.0
+duckdb==1.5.3
+feln @ file:///data/feln-qwen-20260917/feln
+layers-json @ ${LAYERS_JSON_REPOSITORY}@32d6d4ea57975a05552f2ade840cf2085ff25ed1
+numpy==2.5.3
+pydantic==2.13.5
+pydantic_core==2.46.5
+pytz==2026.3.post1
+sqlglot==30.18.0
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+               total        used        free      shared  buff/cache   available
+Mem:     65932554240  9583869952 46318678016    22781952 10714529792 56348684288
+Swap:     2147479552           0  2147479552
+MemoryCurrent=102612992
+MemoryPeak=134496256
+bf176393f6745628d084fdd0564be8399507222215a44dc6a66bfe77cb94d6c8  NorthSea.ddb

@@ -1,0 +1,11 @@
+MemoryCurrent=7030190080
+MemoryPeak=7048437760
+Id=feln-qwen-baseline.service
+
+MemoryCurrent=24718434304
+MemoryPeak=24861270016
+Id=feln-qwen-candidate27.service
+0.11.986.334 I slot print_timing: id  0 | task 0 | prompt eval time =    1172.70 ms /   663 tokens (    1.77 ms per token,   565.36 tokens per second)
+0.11.986.354 I slot print_timing: id  0 | task 0 |        eval time =    2422.97 ms /    57 tokens (   43.27 ms per token,    23.11 tokens per second)
+6.53.346.954 I slot print_timing: id  0 | task 0 | prompt eval time =    3280.76 ms /   663 tokens (    4.95 ms per token,   202.09 tokens per second)
+6.53.346.973 I slot print_timing: id  0 | task 0 |        eval time =    7479.27 ms /    57 tokens (  133.56 ms per token,     7.49 tokens per second)

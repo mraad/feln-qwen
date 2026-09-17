@@ -1,0 +1,7 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+{'transformers': '5.15.1', 'torch': '2.10.0+cu130', 'peft': '0.20.0', 'accelerate': '1.11.0', 'huggingface-hub': '1.9.2'}
+13.0
+(12, 0)
+True
+b29c606e28a01b1bc8c1351026a0fa6e616bf6c4
+<training-home>/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct

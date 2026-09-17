@@ -1,0 +1,24 @@
+[Unit]
+Description=FELN Studio with the local fine-tuned Qwen model
+After=network.target feln-qwen-model.service
+Wants=feln-qwen-model.service
+
+[Service]
+# Generic account: configure the actual existing account in a local systemd drop-in.
+# See docs/CONFIGURATION.md; this is not the recorded deployment identity.
+User=feln
+WorkingDirectory=/data/feln-studio-20260917/app
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/data/feln-studio-20260917/venv/bin/python -m feln_studio.server --port 8766 --backends lora --lora-label "Qwen3.5-9B - FELN LoRA - Q4_K_M" --lora-bundle /data/feln-qwen-20260917/bundle --lora-url http://127.0.0.1:18092 --data /data/feln-qwen-20260917/data-20260917-v6 --gold /data/feln-qwen-20260917/data-20260917-v6/test.json
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
+ReadWritePaths=/data/feln-studio-20260917/logs
+StandardOutput=append:/data/feln-studio-20260917/logs/studio.log
+StandardError=append:/data/feln-studio-20260917/logs/studio.log
+
+[Install]
+WantedBy=multi-user.target

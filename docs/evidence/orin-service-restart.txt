@@ -1,0 +1,24 @@
+Thu Sep 17 13:12:15 UTC 2026
+MainPID=123578
+Id=feln-qwen-model.service
+ActiveState=active
+UnitFileState=enabled
+
+MainPID=123579
+Id=feln-qwen-app.service
+ActiveState=active
+UnitFileState=enabled
+{"ready": true, "model_url": "http://127.0.0.1:18092", "spatial_execution": true}{"ready": true, "model_url": "http://127.0.0.1:18092", "spatial_execution": true}MainPID=123809
+ExecMainStatus=0
+Id=feln-qwen-model.service
+ActiveState=active
+SubState=running
+UnitFileState=enabled
+
+MainPID=123810
+ExecMainStatus=0
+Id=feln-qwen-app.service
+ActiveState=active
+SubState=running
+UnitFileState=enabled
+Thu Sep 17 13:12:20 UTC 2026

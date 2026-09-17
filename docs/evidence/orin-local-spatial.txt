@@ -1,0 +1,6 @@
+# Historical stock-model probe; this is not tuned-deployment evidence.
+# Recorded model endpoint: http://127.0.0.1:18090.
+# To reproduce with the current app: FELN_MODEL_URL=http://127.0.0.1:18090.
+# The original launch command is not included in this capture.
+# The tuned deployment uses port 18092; see orin-final-verification.txt.
+{"ready": true, "model_url": "http://127.0.0.1:18090", "spatial_execution": true}

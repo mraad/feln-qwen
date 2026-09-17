@@ -1,0 +1,13 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+bf176393f6745628d084fdd0564be8399507222215a44dc6a66bfe77cb94d6c8  NorthSea.ddb
+MainPID=64236
+MemoryCurrent=69091328
+MemoryPeak=70955008
+
+MainPID=63133
+MemoryCurrent=1334296576
+MemoryPeak=1335353344
+               total        used        free      shared  buff/cache   available
+Mem:     65932554240  9452752896 47252987904    22773760  9899872256 56479801344
+Swap:     2147479552           0  2147479552
+{"ready": true, "model_url": "http://127.0.0.1:18090", "spatial_execution": false}-rw-rw-r-- 1 feln feln 1.8G Sep 17 11:07 stock-q4_k_m.gguf

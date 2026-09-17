@@ -1,0 +1,112 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.10.0+cu130).
+
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/427 [00:00<01:37,  4.36it/s]
+Loading weights:   0%|          | 2/427 [00:00<02:00,  3.54it/s]
+Loading weights:   6%|▌         | 25/427 [00:00<00:07, 55.34it/s]
+Loading weights:  11%|█         | 47/427 [00:00<00:03, 95.31it/s]
+Loading weights:  19%|█▊        | 80/427 [00:00<00:02, 153.99it/s]
+Loading weights:  24%|██▍       | 104/427 [00:00<00:01, 176.85it/s]
+Loading weights:  31%|███▏      | 134/427 [00:01<00:01, 210.54it/s]
+Loading weights:  37%|███▋      | 160/427 [00:01<00:01, 221.16it/s]
+Loading weights:  46%|████▌     | 196/427 [00:01<00:00, 258.48it/s]
+Loading weights:  52%|█████▏    | 224/427 [00:01<00:00, 261.81it/s]
+Loading weights:  59%|█████▉    | 252/427 [00:01<00:00, 264.62it/s]
+Loading weights:  66%|██████▌   | 280/427 [00:01<00:00, 246.04it/s]
+Loading weights:  72%|███████▏  | 308/427 [00:01<00:00, 254.73it/s]
+Loading weights:  80%|███████▉  | 341/427 [00:01<00:00, 270.90it/s]
+Loading weights:  86%|████████▋ | 369/427 [00:01<00:00, 253.83it/s]
+Loading weights:  94%|█████████▎| 400/427 [00:02<00:00, 260.51it/s]
+Loading weights: 100%|██████████| 427/427 [00:02<00:00, 198.49it/s]
+Traceback (most recent call last):
+  File "/opt/dlami/nvme/feln-qwen-20260917/training/evaluate.py", line 197, in <module>
+    main()
+  File "/opt/dlami/nvme/feln-qwen-20260917/training/evaluate.py", line 114, in main
+    outputs = model.generate(
+              ^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/peft/peft_model.py", line 2223, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/generation/utils.py", line 2668, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/generation/utils.py", line 2868, in _sample
+    outputs = self._prefill(
+              ^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/generation/utils.py", line 3948, in _prefill
+    return self(**model_inputs, return_dict=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/utils/generic.py", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1624, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/utils/generic.py", line 1068, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1199, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/modeling_layers.py", line 114, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 768, in forward
+    hidden_states = self.linear_attn(
+                    ^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/integrations/accelerate.py", line 947, in wrapped
+    output = forward_func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 445, in forward
+    mixed_qkv = self.in_proj_qkv(hidden_states)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/peft/tuners/lora/layer.py", line 1058, in forward
+    result = result + lora_B(lora_A(dropout(x))) * scaling
+                             ^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${TRAIN_VENV}/lib/python3.12/site-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasSgemm( handle, opa, opb, m, n, k, &alpha, a, lda, b, ldb, &beta, c, ldc)`

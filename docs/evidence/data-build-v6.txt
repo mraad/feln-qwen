@@ -1,0 +1,223 @@
+{
+  "seed": 20260917,
+  "source_records": 1000,
+  "excluded_records": 0,
+  "okf_excluded_fields": {
+    "Wells": [
+      "symbol",
+      "casing_lot",
+      "composite_log",
+      "core_photo",
+      "cores",
+      "cuttings",
+      "dst"
+    ],
+    "Pipelines": [],
+    "Discoveries": []
+  },
+  "catalog_extra_hints": {
+    "Wells": {
+      "multilateral": [
+        "Text for value YES: that are multilateral.",
+        "Text for value NO: that are not multilateral."
+      ],
+      "water_depth": [
+        "Water depth at the well location, in meters.",
+        "Use 'water_depth = cast(110.0 as DOUBLE PRECISION)' for 'water depth is 110.0'."
+      ],
+      "discovery_wellbore": [
+        "Text for value YES: that are discovery wellbores.",
+        "Text for value NO: that are not discovery wellbores."
+      ],
+      "geochem_info": [
+        "Use 'geochem_info = cast(0 as SMALLINT)' for 'geochemical information is 0'."
+      ],
+      "log": [
+        "Use 'log = cast(1 as SMALLINT)' for 'well logs is 1'."
+      ],
+      "mud": [
+        "Use 'mud = cast(1 as SMALLINT)' for 'mud records is 1'."
+      ],
+      "old_wdss": [
+        "Use 'old_wdss = cast(0 as SMALLINT)' for 'old WDSS records is 0'."
+      ],
+      "npd_papers": [
+        "Use 'npd_papers = cast(0 as SMALLINT)' for 'NPD papers is 0'."
+      ],
+      "cuttings_sample": [
+        "Text for value YES: with cuttings samples.",
+        "Text for value NO: without cuttings samples."
+      ],
+      "core_sample": [
+        "Text for value YES: with core samples.",
+        "Text for value NO: without core samples."
+      ],
+      "content_type": [
+        "Use 'content_type = cast(5 as SMALLINT)' for 'oil/gas'.",
+        "Use 'content_type = cast(7 as SMALLINT)' for 'gas/condensate'.",
+        "Use 'content_type = cast(10 as SMALLINT)' for 'oil/gas shows'.",
+        "Use 'content_type = cast(11 as SMALLINT)' for 'gas/condensate shows'.",
+        "Use 'content_type = cast(12 as SMALLINT)' for 'oil/condensate shows'.",
+        "Use 'content_type = cast(13 as SMALLINT)' for 'oil/gas/condensate'.",
+        "Use 'content_type = cast(15 as SMALLINT)' for 'oil/condensate'."
+      ]
+    },
+    "Pipelines": {},
+    "Discoveries": {
+      "discovery_type": [
+        "Use 'discovery_type = cast(2 as INTEGER)' for 'gas/condensate'.",
+        "Use 'discovery_type = cast(4 as INTEGER)' for 'oil/gas'."
+      ],
+      "included_in_field": [
+        "Text for value YES: that are included in a field.",
+        "Text for value NO: that are not included in a field."
+      ]
+    }
+  },
+  "okf_extra_hints": {
+    "Wells": {
+      "water_depth": [
+        "Depth of the well in meters",
+        "Use 'water_depth = cast(110.0 as DOUBLE PRECISION)' for 'water depth in meters is 110.0'."
+      ],
+      "geochem_info": [
+        "Use 'geochem_info = cast(0 as SMALLINT)' for 'geochem info is 0'."
+      ],
+      "log": [
+        "Use 'log = cast(1 as SMALLINT)' for 'log is 1'."
+      ],
+      "mud": [
+        "Use 'mud = cast(1 as SMALLINT)' for 'mud is 1'."
+      ],
+      "old_wdss": [
+        "Use 'old_wdss = cast(0 as SMALLINT)' for 'old wdss is 0'."
+      ],
+      "npd_papers": [
+        "Use 'npd_papers = cast(0 as SMALLINT)' for 'has npd papers is 0'."
+      ],
+      "content_type": [
+        "Use 'content_type = cast(5 as SMALLINT)' for 'oil or gas'.",
+        "Use 'content_type = cast(7 as SMALLINT)' for 'gas or condensate'.",
+        "Use 'content_type = cast(10 as SMALLINT)' for 'oil or gas shows'.",
+        "Use 'content_type = cast(11 as SMALLINT)' for 'gas or condensate shows'.",
+        "Use 'content_type = cast(12 as SMALLINT)' for 'oil or condensate shows'.",
+        "Use 'content_type = cast(13 as SMALLINT)' for 'oil or gas or condensate'.",
+        "Use 'content_type = cast(15 as SMALLINT)' for 'oil or condensate'."
+      ]
+    },
+    "Pipelines": {},
+    "Discoveries": {
+      "discovery_type": [
+        "Use 'discovery_type = cast(2 as INTEGER)' for 'gas or condensate'.",
+        "Use 'discovery_type = cast(4 as INTEGER)' for 'oil or gas'."
+      ]
+    }
+  },
+  "alias_differences": {
+    "Wells": {
+      "water_depth": {
+        "okf": "water depth in meters",
+        "catalog": "water depth"
+      },
+      "geochem_info": {
+        "okf": "geochem info",
+        "catalog": "geochemical information"
+      },
+      "log": {
+        "okf": "log",
+        "catalog": "well logs"
+      },
+      "mud": {
+        "okf": "mud",
+        "catalog": "mud records"
+      },
+      "old_wdss": {
+        "okf": "old wdss",
+        "catalog": "old WDSS records"
+      },
+      "npd_papers": {
+        "okf": "has npd papers",
+        "catalog": "NPD papers"
+      },
+      "cuttings_sample": {
+        "okf": "cuttings sample",
+        "catalog": "cuttings samples"
+      },
+      "core_sample": {
+        "okf": "core sample",
+        "catalog": "core samples"
+      }
+    },
+    "Pipelines": {},
+    "Discoveries": {}
+  },
+  "deduplicated": 149,
+  "groups": 3393,
+  "counts": {
+    "train": 4790,
+    "val": 673,
+    "test": 534
+  },
+  "slices": {
+    "train": {
+      "Discoveries:2": 737,
+      "Pipelines:2": 641,
+      "Wells:1": 691,
+      "Discoveries:1": 523,
+      "Wells:3": 288,
+      "Wells:2": 696,
+      "Pipelines:1": 512,
+      "Pipelines:3": 353,
+      "Discoveries:3": 349
+    },
+    "val": {
+      "Pipelines:3": 40,
+      "Pipelines:2": 120,
+      "Discoveries:1": 134,
+      "Pipelines:1": 39,
+      "Wells:1": 100,
+      "Discoveries:3": 37,
+      "Wells:3": 32,
+      "Wells:2": 94,
+      "Discoveries:2": 77
+    },
+    "test": {
+      "Discoveries:1": 49,
+      "Wells:1": 46,
+      "Pipelines:1": 79,
+      "Wells:2": 76,
+      "Wells:3": 48,
+      "Pipelines:3": 41,
+      "Pipelines:2": 81,
+      "Discoveries:2": 72,
+      "Discoveries:3": 42
+    }
+  },
+  "sources": {
+    "FELN.json": "24a1bdbf23267ae656738f900fb46dd58983a2476c697eda48a44d8412914074",
+    "Layers.json": "99e72e59c723fb71851623b16f95da06857a668b6058e5c44f09cd5d1e22431e",
+    "okf/Discoveries.md": "11cde2b44e019ae8d6ab8b8b74fa8ecb8894c55dd359406da02ad53dcae0a137",
+    "okf/Pipelines.md": "fb00c1f0f1d1f4557a2b00c8bfb5427bdaaa997a0b1584a7e88d462748f13215",
+    "okf/Wells.md": "0e793a692cb8bcc9239d2720e4d935394698d0a831029a51356b3d85c0cf3fa0",
+    "okf/index.md": "fb5d2e8149e8a69b68e5247567426534b168ced70aca82cadf80ece41ad06760"
+  },
+  "artifacts": {
+    "FELN.json": "24a1bdbf23267ae656738f900fb46dd58983a2476c697eda48a44d8412914074",
+    "transformations.json": "ef574fdb5282430cce8c14014ff53a397f58546b91a188f2797389b7dcb58b7c",
+    "test.json": "104775e3711f2f145000b0de3cb958e0e87be9617e33eaade1ab95a27a11db53",
+    "excluded.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "train.json": "54b2536ff04dccfaf08904f60725d12514b9c6ca7cd8dc087936cae5f61889ec",
+    "Layers.json": "99e72e59c723fb71851623b16f95da06857a668b6058e5c44f09cd5d1e22431e",
+    "val.json": "e212a0fe906517424fc4756faf2ecf39b905406fc8c4779b13bface19001dc89",
+    "okf/Discoveries.md": "11cde2b44e019ae8d6ab8b8b74fa8ecb8894c55dd359406da02ad53dcae0a137",
+    "okf/Pipelines.md": "fb00c1f0f1d1f4557a2b00c8bfb5427bdaaa997a0b1584a7e88d462748f13215",
+    "okf/Wells.md": "0e793a692cb8bcc9239d2720e4d935394698d0a831029a51356b3d85c0cf3fa0",
+    "okf/index.md": "fb5d2e8149e8a69b68e5247567426534b168ced70aca82cadf80ece41ad06760"
+  },
+  "split_policy": "literal-masked SQL families, primary preserved, secondary order canonicalized; stratified by primary and layer count",
+  "limitations": [
+    "Synthetic language, no independent real-user test",
+    "Static catalog shared across splits, query families are disjoint",
+    "No filtering by returned row count"
+  ]
+}

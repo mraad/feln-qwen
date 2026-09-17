@@ -1,0 +1,8 @@
+# Export LAYERS_JSON_REPOSITORY locally before installation; see docs/CONFIGURATION.md.
+# Runtime dependencies for Studio's selected GGUF backend only.
+# Install the pinned local FELN archive separately: uv pip install ./feln
+numpy==2.5.3
+pydantic==2.13.5
+python-dotenv==1.2.3
+sqlglot==30.18.0
+layers-json[model] @ ${LAYERS_JSON_REPOSITORY}@32d6d4ea57975a05552f2ade840cf2085ff25ed1
