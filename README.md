@@ -91,7 +91,7 @@ returned the expected FELN and one local GeoJSON feature in 1.791 s of server ti
 
 ## Application access
 
-**Browser UI:** [FELN Studio](http://localhost:8766/) now runs on Orin, with a Mac
+**Browser UI:** [FELN Studio](http://localhost:8766/) is deployed on Orin, with a Mac
 SSH tunnel started during deployment. It uses this fine-tuned Qwen model and provides
 the recorded-question picker, prompt editor, generated FELN, and gold comparison.
 See [Studio deployment and reconnect instructions](docs/STUDIO.md).

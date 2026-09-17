@@ -19,6 +19,8 @@ export PYTHONPATH="${FELN_APP_REPO}:$PWD"
 "${FELN_APP_REPO}/.venv/bin/python" training/prepare.py \
   --output runs/data-20260917-v6 --verify
 "${FELN_APP_REPO}/.venv/bin/python" training/test_contract.py
+"${FELN_APP_REPO}/.venv/bin/python" -m unittest training.test_validation
+"${FELN_APP_REPO}/.venv/bin/python" -O -m unittest training.test_validation
 "${FELN_APP_REPO}/.venv/bin/ruff" check training serving
 ```
 
@@ -82,7 +84,12 @@ tmux ls
 `base` is a complete HF snapshot of Qwen/Qwen3.5-9B at
 `c202236235762e1c871ad0ccb60c8ee5ba337b9a`. Model and tokenizer identifiers,
 training arguments, wall time, peak allocator memory, and chosen checkpoint are in
-each run's `report.json`. Trainer history and optimizer checkpoints remain alongside
+each run's `report.json`. New runs record the actual local `--base` path and SHA-256
+of its non-hidden artifact files, including weights and tokenizer, before loading.
+Upstream revision fields come from saved `_commit_hash` metadata and are `null`
+when the local snapshot does not retain it; they are never filled with a fixed
+model revision. Keep the pinned download command below to establish upstream
+provenance. The historical reports describe the independently verified completed run. Trainer history and optimizer checkpoints remain alongside
 the adapter. Do not run `uv sync` or install into the shared AutoModel environment.
 
 The exact download command was:
@@ -193,6 +200,66 @@ App endpoint: Orin `127.0.0.1:18091`. No workstation tunnel is used.
 Studio additionally uses Orin `127.0.0.1:8766`. See the
 [combined Mac tunnel command](../README.md#application-access) to forward all three
 services, and the [Studio runbook](STUDIO.md) for its independent service management.
+
+## Reference spatial execution (Orin, no model server needed)
+
+`evidence/reference-spatial-test-v6.json` is a separate **534-record gold FELN**
+execution check. Its original ad hoc producer was not retained. The reproduction
+below implements the recorded output contract: visit every v6 test record in file
+order, execute its expected `meta` through `SpatialQuery` with `limit=1`, record
+`index`, bounded `count` and `error`, then report total records/errors, elapsed
+seconds, and database hashes before/after. Counts of 0 or 1 are bounded results,
+not total matching features. Timing will differ on another run.
+
+This does not call the model or measure accuracy. `serving/benchmark.py` measures
+18 sampled end-to-end requests and cannot reproduce this report. Run the following
+inside the existing Orin workspace with the pinned application and database copy;
+the output filename must be new. Do not replace the historical evidence file.
+
+```sh
+cd /data/feln-qwen-20260917
+PYTHONPATH=$PWD/app venv/bin/python - <<'PYTHON'
+import json
+import time
+from pathlib import Path
+from src.feln_data import Schema, fingerprint
+from src.spatial_query import SpatialQuery
+
+output = Path("reference-spatial-test-repeat.json")
+if output.exists():
+    raise SystemExit("Refusing to overwrite reference report")
+database = Path("NorthSea.ddb")
+records = json.loads(Path("data-20260917-v6/test.json").read_text())
+if len(records) != 534:
+    raise ValueError("Expected all 534 v6 test records")
+query = SpatialQuery(database, Schema(Path("data-20260917-v6/Layers.json")))
+before = fingerprint(database)
+started = time.monotonic()
+results = []
+for index, row in enumerate(records):
+    try:
+        result = query.execute(row["meta"], limit=1)
+        results.append({"index": index, "count": result["count"], "error": None})
+    except Exception as exc:
+        results.append({"index": index, "count": None, "error": str(exc)})
+seconds = time.monotonic() - started
+after = fingerprint(database)
+if before != after:
+    raise RuntimeError("Database changed during read-only verification")
+report = {
+    "n": len(results),
+    "errors": sum(row["error"] is not None for row in results),
+    "seconds": seconds,
+    "database_sha256_before": before,
+    "database_sha256_after": after,
+    "results": results,
+}
+with output.open("x") as stream:
+    json.dump(report, stream, indent=2)
+print(json.dumps({k: v for k, v in report.items() if k != "results"}, indent=2))
+raise SystemExit(1 if report["errors"] else 0)
+PYTHON
+```
 
 ## Actual-artifact evaluation and end-to-end benchmark (Orin)
 

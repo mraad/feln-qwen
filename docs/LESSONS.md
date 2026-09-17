@@ -110,7 +110,9 @@ verify enabled state and explicit service restarts. Do not claim a physical devi
 reboot unless tested. DuckDB also required `pytz` on the real spatial execution path;
 it is pinned in the isolated serving environment.
 
-Both permanent units are now enabled and active. Explicit restart changed both
+At verification time, both permanent units were enabled and active. They were
+later stopped at the user's request; the units remain enabled for boot.
+Explicit restart during verification changed both
 process IDs; health and the subsequent spatial benchmark passed. Database hashes
 still match. This verifies service restart and boot configuration, while a physical
 device reboot remains untested. See [restart evidence](evidence/orin-service-restart.txt)

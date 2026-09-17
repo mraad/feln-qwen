@@ -414,7 +414,7 @@ real-user questions or unseen catalogs.
 
 | Artifact | Location |
 |---|---|
-| Reproducible source, units, documentation, screenshot, result summaries | This private Git repository |
+| Reproducible source, units, documentation, screenshot, result summaries | This public Git repository |
 | Validated local splits and pinned source archives | Mac `runs/data-20260917-v6` and `runs/reference` |
 | Base model and tokenizer | RTX workspace `base/` |
 | Training logs | RTX workspace `smoke-v6.log`, `full-v6.log` |

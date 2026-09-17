@@ -43,8 +43,9 @@ def main():
     p.add_argument("--records", type=Path, required=True)
     p.add_argument("--bundle", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
-    p.add_argument("--url")
-    p.add_argument("--model", type=Path)
+    mode = p.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--url")
+    mode.add_argument("--model", type=Path)
     p.add_argument("--adapter", type=Path)
     p.add_argument("--batch-size", type=int, default=8)
     p.add_argument(
@@ -53,13 +54,16 @@ def main():
         help="Validation only: first ten distinct query families per primary/layer-count stratum",
     )
     a = p.parse_args()
+    if a.adapter and a.model is None:
+        p.error("--adapter requires --model")
+    if a.batch_size < 1:
+        p.error("--batch-size must be positive")
+    if a.selection and a.records.name != "val.json":
+        p.error("Model selection must use val.json")
     if a.output.exists():
         raise SystemExit("Refusing to overwrite evaluation output")
-    a.output.mkdir(parents=True)
     records = json.loads(a.records.read_text())
     if a.selection:
-        if a.records.name != "val.json":
-            p.error("Model selection must use val.json")
         strata = defaultdict(dict)
         for row in records:
             key = (row["meta"]["layers"][0], len(row["meta"]["layers"]))
@@ -67,6 +71,9 @@ def main():
         records = [
             row for key in sorted(strata) for row in list(strata[key].values())[:10]
         ]
+    if not records:
+        p.error("At least one evaluation record is required")
+    a.output.mkdir(parents=True)
     with (a.output / "records.json").open("x") as out:
         json.dump(records, out, ensure_ascii=False)
     schema = Schema(a.bundle / "Layers.json")
@@ -112,7 +119,10 @@ def main():
                 ).to(model.device)
                 # Match training: PEFT keeps adapter weights in FP32, so inference
                 # also needs BF16 autocast for their linear operations.
-                with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
+                with (
+                    torch.inference_mode(),
+                    torch.autocast("cuda", dtype=torch.bfloat16),
+                ):
                     outputs = model.generate(
                         **inputs,
                         do_sample=False,

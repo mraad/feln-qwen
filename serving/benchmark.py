@@ -38,6 +38,8 @@ def main():
         if len(strata[key]) < 2:
             strata[key].append(row)
     records = [row for key in sorted(strata) for row in strata[key]]
+    if len(records) < 2:
+        parser.error("At least two selected records are required")
     samples = [memory()]
     done = threading.Event()
 
@@ -78,7 +80,9 @@ def main():
                     "text": row["text"],
                     "seconds": time.monotonic() - before,
                     "raw_exact": parsed is not None and parsed.same(expected),
-                    "compiled_exact": FELN.model_validate(result["feln"]).same(expected),
+                    "compiled_exact": FELN.model_validate(result["feln"]).same(
+                        expected
+                    ),
                     "feln": result["feln"],
                     "expected": row["meta"],
                     "count": result["execution"]["count"],

@@ -97,15 +97,14 @@ def read_okf(directory, schema):
                 continue
             spec = expected[field]
             for key in ("dtype",):
-                assert column[key] == spec[key], (name, field, key)
+                if column[key] != spec[key]:
+                    raise ValueError(f"OKF/catalog mismatch: {name}.{field} {key}")
             if column["alias"] != spec["alias"]:
                 column["catalog_alias"] = spec["alias"]
-            assert column["values"] == [str(v) for v in spec["values"]], (
-                name,
-                field,
-                "values",
-            )
-            assert domains[field] == spec["keyval"], (name, field, "domains")
+            if column["values"] != [str(v) for v in spec["values"]]:
+                raise ValueError(f"OKF/catalog mismatch: {name}.{field} values")
+            if domains[field] != spec["keyval"]:
+                raise ValueError(f"OKF/catalog mismatch: {name}.{field} domains")
             column["okf_extra_hints"] = [
                 h for h in hints[field] if h not in spec["hints"]
             ]
@@ -313,23 +312,28 @@ def verify(directory):
     seen_groups, seen_text, seen_targets = set(), set(), set()
     for name in ("train", "val", "test"):
         rows = json.loads((directory / f"{name}.json").read_text())
-        assert rows
+        if not rows:
+            raise ValueError(f"Empty split: {name}")
         groups = {family(r["meta"]) for r in rows}
         texts = {" ".join(r["text"].casefold().split()) for r in rows}
         targets = {canonical_text(FELN.model_validate(r["meta"])) for r in rows}
-        assert not groups & seen_groups and not texts & seen_text
-        assert not targets & seen_targets, "Equivalent FELN targets cross splits"
-        assert len(texts) == len(rows)
+        if groups & seen_groups or texts & seen_text:
+            raise ValueError(f"Query families or text cross splits: {name}")
+        if targets & seen_targets:
+            raise ValueError(f"Equivalent FELN targets cross splits: {name}")
+        if len(texts) != len(rows):
+            raise ValueError(f"Duplicate text within split: {name}")
         for row in rows:
             schema.validate(row["meta"])
-            assert row["provenance"] and row["group"] == family(row["meta"])
+            if not row["provenance"] or row["group"] != family(row["meta"]):
+                raise ValueError(f"Missing provenance or incorrect family: {name}")
         seen_groups |= groups
         seen_text |= texts
         seen_targets |= targets
     manifest = json.loads((directory / "manifest.json").read_text())
-    assert all(
-        fingerprint(directory / p) == h for p, h in manifest["artifacts"].items()
-    )
+    for path, expected_hash in manifest["artifacts"].items():
+        if fingerprint(directory / path) != expected_hash:
+            raise ValueError(f"Artifact hash mismatch: {path}")
 
 
 if __name__ == "__main__":

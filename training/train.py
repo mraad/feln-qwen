@@ -1,26 +1,49 @@
 """BF16 LoRA on two GPUs; immutable outputs and assistant-only loss."""
 
 import argparse
+import hashlib
 import json
 import os
 import time
 from pathlib import Path
 
-import torch
-from peft import LoraConfig, get_peft_model
-from src.feln_data import Schema
-from src.prompt import build_dataset
-from transformers import (
-    AutoTokenizer,
-    DataCollatorForSeq2Seq,
-    Qwen3_5ForCausalLM,
-    Trainer,
-    TrainingArguments,
-    set_seed,
-)
+
+def base_identity(base):
+    """Identify the actual local snapshot; absent upstream revisions stay unknown."""
+    config = json.loads((base / "config.json").read_text())
+    tokenizer = json.loads((base / "tokenizer_config.json").read_text())
+    hashes = {}
+    for path in sorted(base.rglob("*")):
+        if path.is_file() and not any(
+            p.startswith(".") for p in path.relative_to(base).parts
+        ):
+            with path.open("rb") as stream:
+                hashes[str(path.relative_to(base))] = hashlib.file_digest(
+                    stream, "sha256"
+                ).hexdigest()
+    return {
+        "model_id": str(base),
+        "revision": config.get("_commit_hash"),
+        "tokenizer_id": str(base),
+        "tokenizer_revision": tokenizer.get("_commit_hash"),
+        "base_artifacts_sha256": hashes,
+    }
 
 
 def main():
+    import torch
+    from peft import LoraConfig, get_peft_model
+    from src.feln_data import Schema
+    from src.prompt import build_dataset
+    from transformers import (
+        AutoTokenizer,
+        DataCollatorForSeq2Seq,
+        Qwen3_5ForCausalLM,
+        Trainer,
+        TrainingArguments,
+        set_seed,
+    )
+
     p = argparse.ArgumentParser()
     p.add_argument("--base", type=Path, required=True)
     p.add_argument("--data", type=Path, required=True)
@@ -28,6 +51,7 @@ def main():
     p.add_argument("--smoke", action="store_true")
     a = p.parse_args()
     rank = int(os.environ.get("LOCAL_RANK", "0"))
+    identity = base_identity(a.base) if rank == 0 else None
     torch.cuda.set_device(rank)
     if rank == 0:
         a.output.mkdir(parents=True, exist_ok=False)
@@ -108,10 +132,7 @@ def main():
                 s: max(len(r["input_ids"]) for r in v) for s, v in data.items()
             },
             "best_checkpoint": trainer.state.best_model_checkpoint,
-            "model_id": "Qwen/Qwen3.5-9B",
-            "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
-            "tokenizer_id": "Qwen/Qwen3.5-9B",
-            "tokenizer_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+            **identity,
             "world_size": int(os.environ.get("WORLD_SIZE", "1")),
             "training_args": config.to_dict(),
         }
