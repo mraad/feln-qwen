@@ -193,6 +193,13 @@ failed attempts are retained outside Git; documentation and evidence are committ
 Fork the repository and submit a pull request. The repository owner reviews and
 merges changes; direct pushes to `main` are blocked. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Acknowledgements
+
+A huge thank you to **[Geodata](https://www.geodata.no/)** for the beautiful
+**NorthSea data** that made this project possible! It brings the training,
+evaluation, and Studio demonstrations to life with rich, real-world geospatial
+examples. We deeply appreciate the work and care behind this dataset.
+
 ## License
 
 Original code and documentation in this repository are licensed under the
