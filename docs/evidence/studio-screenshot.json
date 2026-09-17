@@ -1,0 +1,56 @@
+{
+  "captured_at": "2026-09-17T14:14:00.680Z",
+  "url": "http://localhost:8766/",
+  "browser": "153.0.8010.48",
+  "automation": "Playwright 1.63.0",
+  "viewport": {
+    "width": 1440,
+    "height": 1100
+  },
+  "color_scheme": "light",
+  "full_page": true,
+  "screenshot": "docs/images/feln-studio-orin.png",
+  "sha256": "f01e4428f5566b733a8f97386035e067427f9d5782bb90e3d2b42a2d9b99e673",
+  "interaction": "Selected an existing recorded question and clicked Generate; no DOM or response substitutions",
+  "query": "Pipelines with a dimension over 20.0 that are no more than 2 miles from a condensate discovery.",
+  "verdict": "EXACT MATCH",
+  "backend": "Qwen3.5-9B - FELN LoRA - Q4_K_M",
+  "page_errors": [],
+  "result": {
+    "valid": true,
+    "feln": {
+      "layers": [
+        "Pipelines",
+        "Discoveries"
+      ],
+      "where": [
+        "\"dimension\" > CAST(20.0 AS DOUBLE PRECISION)",
+        "\"discovery_type\" = CAST(5 AS INT)"
+      ],
+      "relations": [
+        "withinDistance 2 miles"
+      ]
+    },
+    "raw": "{\"layers\": [\"Pipelines\", \"Discoveries\"], \"where\": [\"\\\"dimension\\\" > CAST(20.0 AS DOUBLE PRECISION)\", \"\\\"discovery_type\\\" = CAST(5 AS INT)\"], \"relations\": [\"withinDistance 2 miles\"]}",
+    "attempts": 1,
+    "seconds": 3.2160242300014943,
+    "first_token_seconds": 0.925782,
+    "prompt_tokens": 486,
+    "generated_tokens": 54,
+    "examples": null,
+    "expected": {
+      "layers": [
+        "Pipelines",
+        "Discoveries"
+      ],
+      "where": [
+        "\"dimension\" > CAST(20.0 AS DOUBLE PRECISION)",
+        "\"discovery_type\" = CAST(5 AS INT)"
+      ],
+      "relations": [
+        "withinDistance 2 miles"
+      ]
+    },
+    "exact": true
+  }
+}

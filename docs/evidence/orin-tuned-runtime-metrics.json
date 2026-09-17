@@ -1,0 +1,12 @@
+{
+  "scope": "Measured Orin tuned Q4 test, 534 sequential HTTP requests",
+  "source": "Orin tuned-orin-test-v6/predictions.jsonl",
+  "n": 534,
+  "median_generation_tokens_per_second": 23.020006921106983,
+  "total_generated_tokens": 31748,
+  "total_prompt_tokens_evaluated": 247316,
+  "total_generation_ms": 1355678.075,
+  "total_prompt_ms": 398088.473,
+  "byte_identical_raw_outputs_to_rtx": 534,
+  "matching_raw_exact_flags_to_rtx": 534
+}

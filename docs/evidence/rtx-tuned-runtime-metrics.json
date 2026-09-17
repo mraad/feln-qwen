@@ -1,0 +1,13 @@
+{
+  "scope": "Measured single-GPU RTX tuned Q4 test, 534 sequential HTTP requests",
+  "source": "RTX tuned-rtx-q4-test-v6/predictions.jsonl",
+  "n": 534,
+  "median_generation_tokens_per_second": 184.49622779763794,
+  "total_generated_tokens": 31748,
+  "total_prompt_tokens_evaluated": 247316,
+  "total_generation_ms": 169311.351,
+  "total_prompt_ms": 48723.697,
+  "loaded_idle_gpu_memory_mib": 5751,
+  "memory_scope": "nvidia-smi after benchmark, loaded idle allocation, not a peak",
+  "gpu_count_inference": 1
+}

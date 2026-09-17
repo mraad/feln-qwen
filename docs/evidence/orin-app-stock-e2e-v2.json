@@ -1,0 +1,25 @@
+{
+  "feln": {
+    "layers": [
+      "Wells"
+    ],
+    "where": [
+      ""
+    ],
+    "relations": []
+  },
+  "seconds": 3.6718882950008265,
+  "count": 1,
+  "query_seconds": 0.11592315600137226,
+  "model_timings": {
+    "cache_n": 206,
+    "prompt_n": 440,
+    "prompt_ms": 714.056,
+    "prompt_per_token_ms": 1.6228545454545455,
+    "prompt_per_second": 616.198169331257,
+    "predicted_n": 37,
+    "predicted_ms": 1601.89,
+    "predicted_per_token_ms": 44.496944444444445,
+    "predicted_per_second": 22.473453233368083
+  }
+}

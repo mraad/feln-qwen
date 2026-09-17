@@ -1,0 +1,87 @@
+[
+  {
+    "text": "I need all wells with status not 'COMPLETED (SHUT IN)' and source Danish Energy Agency, within 15 kilometers of oil pipelines but more than 50 miles from any matching condensate discovery.",
+    "expected": {
+      "layers": [
+        "Wells",
+        "Pipelines",
+        "Discoveries"
+      ],
+      "where": [
+        "(\"status\" <> 'COMPLETED (SHUT IN)') AND (\"source\" = 'DEA')",
+        "\"PipelinesType\" = CAST(4 AS SMALLINT)",
+        "\"discovery_type\" = CAST(5 AS INT)"
+      ],
+      "relations": [
+        "withinDistance 15 kilometers",
+        "notWithinDistance 50 miles"
+      ]
+    },
+    "raw": "{\"layers\": [\"Wells\", \"Pipelines\", \"Discoveries\"], \"where\": [\"(\\\"status\\\" <> 'COMPLETED (SHUT IN') AND (\\\"source\\\" = 'DEA')\", \"\\\"PipelinesType\\\" = CAST(4 AS SMALLINT)\", \"\\\"discovery_type\\\" = CAST(5 AS INT)\"], \"relations\": [\"withinDistance 15 kilometers\", \"notWithinDistance 50 miles\"]}",
+    "valid": true,
+    "error": null
+  },
+  {
+    "text": "List all discoveries where (field current activity status is either 'PRODUCTION CEASED' or 'UNDER APPRAIS - NO FDP') and (field label is 'BERLING'). The returned discoveries must be no more than 25.5 feet from condensate pipelines.",
+    "expected": {
+      "layers": [
+        "Discoveries",
+        "Pipelines"
+      ],
+      "where": [
+        "(\"field_current_activity_status\" = 'PRODUCTION CEASED' OR \"field_current_activity_status\" = 'UNDER APPRAIS - NO FDP') AND (\"field_label\" = 'BERLING')",
+        "\"PipelinesType\" = CAST(1 AS SMALLINT)"
+      ],
+      "relations": [
+        "withinDistance 25.5 feet"
+      ]
+    },
+    "raw": "{\"layers\": [\"Discoveries\", \"Pipelines\"], \"where\": [\"(\\\"field_current_activity_status\\\" = 'PRODUCTION CEASED' OR \\\"field_current_activity_sta\\\" = 'UNDER APPRAIS - NO FDP') AND (\\\"field_label\\\" = 'BERLING')\", \"\\\"PipelinesType\\\" = CAST(1 AS SMALLINT)\"], \"relations\": [\"withinDistance 25.5 feet\"]}",
+    "valid": false,
+    "error": null
+  },
+  {
+    "text": "Bring up pipelines starting at EDVARD GRIEG and whose main grouping contains Transportation that are within 25 meters of wells with core samples; these pipelines also are more than 100 feet from any discoveries whose field current activity status is not UNDER APPRAIS - NO FDP and reported by Norwegian Petroleum Directorate.",
+    "expected": {
+      "layers": [
+        "Pipelines",
+        "Wells",
+        "Discoveries"
+      ],
+      "where": [
+        "\"from_facility\" = 'EDVARD GRIEG' AND \"main_grouping\" ILIKE '%Transportation%'",
+        "\"core_sample\" = 'YES'",
+        "\"field_current_activity_status\" <> 'UNDER APPRAIS - NO FDP' AND \"source\" = 'NPD'"
+      ],
+      "relations": [
+        "withinDistance 25 meters",
+        "notWithinDistance 100 feet"
+      ]
+    },
+    "raw": "{\"layers\": [\"Pipelines\", \"Wells\", \"Discoveries\"], \"where\": [\"\\\"from_facility\\\" = 'EDVARD GRIEG' AND \\\"main_grouping\\\" ILIKE '%Transportation%'\", \"\\\"core_sample\\\" = 'YES'\", \"\\\"field_current_activity_sta\\\" <> 'UNDER APPRAIS - NO FDP' AND \\\"source\\\" = 'NPD'\"], \"relations\": [\"withinDistance 25 meters\", \"notWithinDistance 100 feet\"]}",
+    "valid": false,
+    "error": null
+  },
+  {
+    "text": "Show me all wells where (status is not 'COMPLETED (SHUT IN)') and (source is Danish Energy Agency). The returned wells must be within 15 kilometers of oil pipelines. The returned wells must be more than 50 miles from all matching condensate discoveries.",
+    "expected": {
+      "layers": [
+        "Wells",
+        "Pipelines",
+        "Discoveries"
+      ],
+      "where": [
+        "(\"status\" <> 'COMPLETED (SHUT IN)') AND (\"source\" = 'DEA')",
+        "\"PipelinesType\" = CAST(4 AS SMALLINT)",
+        "\"discovery_type\" = CAST(5 AS INT)"
+      ],
+      "relations": [
+        "withinDistance 15 kilometers",
+        "notWithinDistance 50 miles"
+      ]
+    },
+    "raw": "{\"layers\": [\"Wells\", \"Pipelines\", \"Discoveries\"], \"where\": [\"(\\\"status\\\" <> 'COMPLETED (SHUT IN') AND (\\\"source\\\" = 'DEA')\", \"\\\"PipelinesType\\\" = CAST(4 AS SMALLINT)\", \"\\\"discovery_type\\\" = CAST(5 AS INT)\"], \"relations\": [\"withinDistance 15 kilometers\", \"notWithinDistance 50 miles\"]}",
+    "valid": true,
+    "error": null
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "n": 90,
+  "records_sha256": "e212a0fe906517424fc4756faf2ecf39b905406fc8c4779b13bface19001dc89",
+  "evaluated_records_sha256": "1ee948cb60a181520259e3bffa5ba00d258f9177e7375bf8f5ba97202a6877ba",
+  "selection_subset": true,
+  "model": "None",
+  "adapter": "None",
+  "url": "http://127.0.0.1:18094",
+  "elapsed_seconds": 507.6089474859982,
+  "raw_exact": 18,
+  "compiled_exact": 19,
+  "valid": 48,
+  "first_batch_seconds": 3.6408349010016536,
+  "warm_p50_seconds": 4.314619826000126,
+  "warm_p95_seconds": 23.243750383000588,
+  "requests_per_second": 0.17730180653849778,
+  "timing_scope": "sequential HTTP"
+}

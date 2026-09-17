@@ -1,0 +1,824 @@
+{
+  "n": 18,
+  "raw_exact": 18,
+  "compiled_exact": 18,
+  "errors": 0,
+  "selection": "First two test questions per primary-layer/layer-count stratum",
+  "first_seconds": 3.318501349000144,
+  "warm_p50_seconds": 3.974140458012698,
+  "warm_p95_seconds": 4.931088002995239,
+  "elapsed_seconds": 66.83247590600513,
+  "requests_per_second": 0.2693301386187705,
+  "memory_before_bytes": {
+    "MemTotal": 65932554240,
+    "MemAvailable": 55527321600,
+    "SwapTotal": 2147479552,
+    "SwapFree": 2145906688
+  },
+  "minimum_available_bytes": 55125463040,
+  "peak_system_used_bytes": 10807091200,
+  "maximum_swap_used_bytes": 1572864,
+  "memory_samples": 1320,
+  "sampling_interval_seconds": 0.05,
+  "scope": "Orin localhost HTTP -> model -> schema compiler -> read-only DuckDB -> GeoJSON; one request at a time; memory is sampled system-wide shared RAM, not CUDA allocator peak",
+  "results": [
+    {
+      "text": "Which discoveries whose discovery activity status is PRODUCTION IN CLARIFICATION PHASE and in the ÅSGARD field?",
+      "seconds": 3.318501349000144,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Discoveries"
+        ],
+        "where": [
+          "\"discovery_current_activity_sta\" = 'PRODUCTION IN CLARIFICATION PHASE' AND \"field_name\" = 'ÅSGARD'"
+        ],
+        "relations": []
+      },
+      "expected": {
+        "layers": [
+          "Discoveries"
+        ],
+        "where": [
+          "\"discovery_current_activity_sta\" = 'PRODUCTION IN CLARIFICATION PHASE' AND \"field_name\" = 'ÅSGARD'"
+        ],
+        "relations": []
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 0,
+        "prompt_n": 666,
+        "prompt_ms": 1167.546,
+        "prompt_per_token_ms": 1.753072072072072,
+        "prompt_per_second": 570.4272037247355,
+        "predicted_n": 47,
+        "predicted_ms": 2013.132,
+        "predicted_per_token_ms": 43.763739130434786,
+        "predicted_per_second": 22.84996711591689
+      },
+      "query_seconds": 0.07965840899851173
+    },
+    {
+      "text": "Could you pull up discoveries whose discovery activity status is APPROVED FOR PRODUCTION and whose field hc type is not NULL?",
+      "seconds": 2.8161658280005213,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Discoveries"
+        ],
+        "where": [
+          "\"discovery_current_activity_sta\" = 'APPROVED FOR PRODUCTION' AND NOT \"field_hc_type\" IS NULL"
+        ],
+        "relations": []
+      },
+      "expected": {
+        "layers": [
+          "Discoveries"
+        ],
+        "where": [
+          "\"discovery_current_activity_sta\" = 'APPROVED FOR PRODUCTION' AND NOT \"field_hc_type\" IS NULL"
+        ],
+        "relations": []
+      },
+      "count": 10,
+      "model_timings": {
+        "cache_n": 150,
+        "prompt_n": 517,
+        "prompt_ms": 801.27,
+        "prompt_per_token_ms": 1.5498452611218567,
+        "prompt_per_second": 645.225704194591,
+        "predicted_n": 44,
+        "predicted_ms": 1875.448,
+        "predicted_per_token_ms": 43.61506976744186,
+        "predicted_per_second": 22.927855104487033
+      },
+      "query_seconds": 0.10576537100132555
+    },
+    {
+      "text": "Find discoveries whose discovery wellbore name contains 21/30- 6A and with the field label OSEBERG that contain pipelines ending at STT-IN and in Norway.",
+      "seconds": 4.15647320500284,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Discoveries",
+          "Pipelines"
+        ],
+        "where": [
+          "\"discovery_wellbore_name\" ILIKE '%21/30- 6A%' AND \"field_label\" = 'OSEBERG'",
+          "\"to_facility\" = 'STT-IN' AND \"country\" = 'NO'"
+        ],
+        "relations": [
+          "contains"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Discoveries",
+          "Pipelines"
+        ],
+        "where": [
+          "\"discovery_wellbore_name\" ILIKE '%21/30- 6A%' AND \"field_label\" = 'OSEBERG'",
+          "\"to_facility\" = 'STT-IN' AND \"country\" = 'NO'"
+        ],
+        "relations": [
+          "contains"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 151,
+        "prompt_n": 532,
+        "prompt_ms": 835.709,
+        "prompt_per_token_ms": 1.5708815789473682,
+        "prompt_per_second": 636.5852228467087,
+        "predicted_n": 75,
+        "predicted_ms": 3229.881,
+        "predicted_per_token_ms": 43.64704054054054,
+        "predicted_per_second": 22.91106080998031
+      },
+      "query_seconds": 0.07464325499313418
+    },
+    {
+      "text": "I’m looking for discoveries whose discovery activity status is NO APPRAISAL and whose discovery name contains 7120/12-2 (Alke Sør) that intersect wells whose production licence contains 090 and without mud records.",
+      "seconds": 4.792294473008951,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Discoveries",
+          "Wells"
+        ],
+        "where": [
+          "\"discovery_current_activity_sta\" = 'NO APPRAISAL' AND \"discovery_name\" ILIKE '%7120/12-2 (Alke Sør)%'",
+          "\"production_licence\" ILIKE '%090%' AND \"mud\" = CAST(0 AS SMALLINT)"
+        ],
+        "relations": [
+          "intersects"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Discoveries",
+          "Wells"
+        ],
+        "where": [
+          "\"discovery_current_activity_sta\" = 'NO APPRAISAL' AND \"discovery_name\" ILIKE '%7120/12-2 (Alke Sør)%'",
+          "\"production_licence\" ILIKE '%090%' AND \"mud\" = CAST(0 AS SMALLINT)"
+        ],
+        "relations": [
+          "intersects"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 167,
+        "prompt_n": 528,
+        "prompt_ms": 815.071,
+        "prompt_per_token_ms": 1.5436950757575758,
+        "prompt_per_second": 647.7963269457507,
+        "predicted_n": 89,
+        "predicted_ms": 3838.845,
+        "predicted_per_token_ms": 43.62323863636363,
+        "predicted_per_second": 22.923561644192457
+      },
+      "query_seconds": 0.07552173399017192
+    },
+    {
+      "text": "Can you find gas discoveries that are farther than 10.5 kilometers from every matching unknown pipeline but within 500 meters of a well classified as 'gas shows'?",
+      "seconds": 4.468539301000419,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Discoveries",
+          "Pipelines",
+          "Wells"
+        ],
+        "where": [
+          "\"discovery_type\" = CAST(1 AS INT)",
+          "\"PipelinesType\" = CAST(0 AS SMALLINT)",
+          "\"content_type\" = CAST(8 AS SMALLINT)"
+        ],
+        "relations": [
+          "notWithinDistance 10.5 kilometers",
+          "withinDistance 500 meters"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Discoveries",
+          "Pipelines",
+          "Wells"
+        ],
+        "where": [
+          "\"discovery_type\" = CAST(1 AS INT)",
+          "\"PipelinesType\" = CAST(0 AS SMALLINT)",
+          "\"content_type\" = CAST(8 AS SMALLINT)"
+        ],
+        "relations": [
+          "notWithinDistance 10.5 kilometers",
+          "withinDistance 500 meters"
+        ]
+      },
+      "count": 10,
+      "model_timings": {
+        "cache_n": 179,
+        "prompt_n": 500,
+        "prompt_ms": 767.333,
+        "prompt_per_token_ms": 1.5346659999999999,
+        "prompt_per_second": 651.6075810632411,
+        "predicted_n": 81,
+        "predicted_ms": 3479.86,
+        "predicted_per_token_ms": 43.49825,
+        "predicted_per_second": 22.989430609277385
+      },
+      "query_seconds": 0.17051707199425437
+    },
+    {
+      "text": "Show discoveries classified as 'gas/condensate'. The returned discoveries must be no more than 3 kilometers from wells classified as 'oil/gas/condensate'. The returned discoveries must be more than 1 kilometer from all matching injection pipelines.",
+      "seconds": 4.2579347400023835,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Discoveries",
+          "Wells",
+          "Pipelines"
+        ],
+        "where": [
+          "\"discovery_type\" = CAST(2 AS INT)",
+          "\"content_type\" = CAST(13 AS SMALLINT)",
+          "\"PipelinesType\" = CAST(3 AS SMALLINT)"
+        ],
+        "relations": [
+          "withinDistance 3 kilometers",
+          "notWithinDistance 1 kilometers"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Discoveries",
+          "Wells",
+          "Pipelines"
+        ],
+        "where": [
+          "\"discovery_type\" = CAST(2 AS INT)",
+          "\"content_type\" = CAST(13 AS SMALLINT)",
+          "\"PipelinesType\" = CAST(3 AS SMALLINT)"
+        ],
+        "relations": [
+          "withinDistance 3 kilometers",
+          "notWithinDistance 1 kilometers"
+        ]
+      },
+      "count": 7,
+      "model_timings": {
+        "cache_n": 179,
+        "prompt_n": 515,
+        "prompt_ms": 794.341,
+        "prompt_per_token_ms": 1.542409708737864,
+        "prompt_per_second": 648.3361679681648,
+        "predicted_n": 77,
+        "predicted_ms": 3327.732,
+        "predicted_per_token_ms": 43.785947368421056,
+        "predicted_per_second": 22.8383776097354
+      },
+      "query_seconds": 0.10834343200258445
+    },
+    {
+      "text": "Can you find pipelines whose current phase is not DECOMMISSIONED and in United Kingdom and whose main grouping contains Transportation?",
+      "seconds": 2.9632910049986094,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Pipelines"
+        ],
+        "where": [
+          "\"current_phase\" <> 'DECOMMISSIONED' AND \"country\" = 'UK' AND \"main_grouping\" ILIKE '%Transportation%'"
+        ],
+        "relations": []
+      },
+      "expected": {
+        "layers": [
+          "Pipelines"
+        ],
+        "where": [
+          "\"current_phase\" <> 'DECOMMISSIONED' AND \"country\" = 'UK' AND \"main_grouping\" ILIKE '%Transportation%'"
+        ],
+        "relations": []
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 179,
+        "prompt_n": 488,
+        "prompt_ms": 776.08,
+        "prompt_per_token_ms": 1.5903278688524591,
+        "prompt_per_second": 628.8011545201525,
+        "predicted_n": 49,
+        "predicted_ms": 2099.46,
+        "predicted_per_token_ms": 43.73875,
+        "predicted_per_second": 22.863021919922264
+      },
+      "query_seconds": 0.07034225699317176
+    },
+    {
+      "text": "I need pipelines starting at GJØA on the map.",
+      "seconds": 2.1125710500054993,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Pipelines"
+        ],
+        "where": [
+          "\"from_facility\" = 'GJØA'"
+        ],
+        "relations": []
+      },
+      "expected": {
+        "layers": [
+          "Pipelines"
+        ],
+        "where": [
+          "\"from_facility\" = 'GJØA'"
+        ],
+        "relations": []
+      },
+      "count": 2,
+      "model_timings": {
+        "cache_n": 179,
+        "prompt_n": 477,
+        "prompt_ms": 758.053,
+        "prompt_per_token_ms": 1.58920964360587,
+        "prompt_per_second": 629.2436017006727,
+        "predicted_n": 30,
+        "predicted_ms": 1270.548,
+        "predicted_per_token_ms": 43.812,
+        "predicted_per_second": 22.824796859307952
+      },
+      "query_seconds": 0.07151571699068882
+    },
+    {
+      "text": "Pipelines with a dimension over 20.0 that are no more than 2 miles from a condensate discovery.",
+      "seconds": 3.286180872004479,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Pipelines",
+          "Discoveries"
+        ],
+        "where": [
+          "\"dimension\" > CAST(20.0 AS DOUBLE PRECISION)",
+          "\"discovery_type\" = CAST(5 AS INT)"
+        ],
+        "relations": [
+          "withinDistance 2 miles"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Pipelines",
+          "Discoveries"
+        ],
+        "where": [
+          "\"dimension\" > CAST(20.0 AS DOUBLE PRECISION)",
+          "\"discovery_type\" = CAST(5 AS INT)"
+        ],
+        "relations": [
+          "withinDistance 2 miles"
+        ]
+      },
+      "count": 2,
+      "model_timings": {
+        "cache_n": 179,
+        "prompt_n": 489,
+        "prompt_ms": 766.225,
+        "prompt_per_token_ms": 1.566922290388548,
+        "prompt_per_second": 638.1937420470488,
+        "predicted_n": 54,
+        "predicted_ms": 2307.423,
+        "predicted_per_token_ms": 43.53628301886792,
+        "predicted_per_second": 22.96934718948368
+      },
+      "query_seconds": 0.15499672100122552
+    },
+    {
+      "text": "I need pipelines that intersect wells whose multilateral is NO on the map.",
+      "seconds": 2.29549365901039,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Pipelines",
+          "Wells"
+        ],
+        "where": [
+          "",
+          "\"multilateral\" = 'NO'"
+        ],
+        "relations": [
+          "intersects"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Pipelines",
+          "Wells"
+        ],
+        "where": [
+          "",
+          "\"multilateral\" = 'NO'"
+        ],
+        "relations": [
+          "intersects"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 179,
+        "prompt_n": 479,
+        "prompt_ms": 776.151,
+        "prompt_per_token_ms": 1.620356993736952,
+        "prompt_per_second": 617.1479518804975,
+        "predicted_n": 33,
+        "predicted_ms": 1416.458,
+        "predicted_per_token_ms": 44.2643125,
+        "predicted_per_second": 22.59156289844104
+      },
+      "query_seconds": 0.08897639100905508
+    },
+    {
+      "text": "Pull up pipelines where the medium contains 'Gas' and the from facility is 'JOHAN SVERDRUP RP', that intersect at least one condensate discovery and are within 2000 meters of unknown wells.",
+      "seconds": 4.731217894004658,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Pipelines",
+          "Discoveries",
+          "Wells"
+        ],
+        "where": [
+          "(\"medium\" ILIKE '%Gas%') AND (\"from_facility\" = 'JOHAN SVERDRUP RP')",
+          "\"discovery_type\" = CAST(5 AS INT)",
+          "\"content_type\" = CAST(16 AS SMALLINT)"
+        ],
+        "relations": [
+          "intersects",
+          "withinDistance 2000 meters"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Pipelines",
+          "Discoveries",
+          "Wells"
+        ],
+        "where": [
+          "(\"medium\" ILIKE '%Gas%') AND (\"from_facility\" = 'JOHAN SVERDRUP RP')",
+          "\"discovery_type\" = CAST(5 AS INT)",
+          "\"content_type\" = CAST(16 AS SMALLINT)"
+        ],
+        "relations": [
+          "intersects",
+          "withinDistance 2000 meters"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 179,
+        "prompt_n": 509,
+        "prompt_ms": 779.335,
+        "prompt_per_token_ms": 1.5311100196463654,
+        "prompt_per_second": 653.120930023674,
+        "predicted_n": 90,
+        "predicted_ms": 3846.028,
+        "predicted_per_token_ms": 43.213797752808986,
+        "predicted_per_second": 23.140757165574456
+      },
+      "query_seconds": 0.08409365500847343
+    },
+    {
+      "text": "Find all pipelines where current phase is either 'DECOMMISSIONED' or 'ABANDONED IN PLACE'. The returned pipelines must intersect one or more discoveries where discovery name contains 'Pandora'. The returned pipelines must be within 3.5 kilometers of water wells.",
+      "seconds": 4.6545827590016415,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Pipelines",
+          "Discoveries",
+          "Wells"
+        ],
+        "where": [
+          "\"current_phase\" = 'DECOMMISSIONED' OR \"current_phase\" = 'ABANDONED IN PLACE'",
+          "\"discovery_name\" ILIKE '%Pandora%'",
+          "\"content_type\" = CAST(14 AS SMALLINT)"
+        ],
+        "relations": [
+          "intersects",
+          "withinDistance 3.5 kilometers"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Pipelines",
+          "Discoveries",
+          "Wells"
+        ],
+        "where": [
+          "\"current_phase\" = 'DECOMMISSIONED' OR \"current_phase\" = 'ABANDONED IN PLACE'",
+          "\"discovery_name\" ILIKE '%Pandora%'",
+          "\"content_type\" = CAST(14 AS SMALLINT)"
+        ],
+        "relations": [
+          "intersects",
+          "withinDistance 3.5 kilometers"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 179,
+        "prompt_n": 519,
+        "prompt_ms": 805.12,
+        "prompt_per_token_ms": 1.551290944123314,
+        "prompt_per_second": 644.6244038155803,
+        "predicted_n": 87,
+        "predicted_ms": 3743.533,
+        "predicted_per_token_ms": 43.52945348837209,
+        "predicted_per_second": 22.97295095301684
+      },
+      "query_seconds": 0.08681760399485938
+    },
+    {
+      "text": "Please list wells whose drilling operator is NULL and without palynology slides and whose entry date is on or before 1983-03-16 00:00:00.",
+      "seconds": 3.7304492569965078,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Wells"
+        ],
+        "where": [
+          "\"drilling_operator\" IS NULL AND \"paly_slides\" = CAST(0 AS SMALLINT) AND \"entry_date\" <= '1983-03-16 00:00:00'"
+        ],
+        "relations": []
+      },
+      "expected": {
+        "layers": [
+          "Wells"
+        ],
+        "where": [
+          "\"drilling_operator\" IS NULL AND \"paly_slides\" = CAST(0 AS SMALLINT) AND \"entry_date\" <= '1983-03-16 00:00:00'"
+        ],
+        "relations": []
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 182,
+        "prompt_n": 504,
+        "prompt_ms": 769.585,
+        "prompt_per_token_ms": 1.526954365079365,
+        "prompt_per_second": 654.8984192779225,
+        "predicted_n": 67,
+        "predicted_ms": 2871.062,
+        "predicted_per_token_ms": 43.50093939393939,
+        "predicted_per_second": 22.98800931502002
+      },
+      "query_seconds": 0.07140595698729157
+    },
+    {
+      "text": "Give me the wells where content is not 'UNKNOWN' and purpose is 'WILDCAT-CCS'.",
+      "seconds": 2.557995577008114,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Wells"
+        ],
+        "where": [
+          "(\"content\" <> 'UNKNOWN') AND (\"purpose\" = 'WILDCAT-CCS')"
+        ],
+        "relations": []
+      },
+      "expected": {
+        "layers": [
+          "Wells"
+        ],
+        "where": [
+          "(\"content\" <> 'UNKNOWN') AND (\"purpose\" = 'WILDCAT-CCS')"
+        ],
+        "relations": []
+      },
+      "count": 1,
+      "model_timings": {
+        "cache_n": 182,
+        "prompt_n": 484,
+        "prompt_ms": 761.367,
+        "prompt_per_token_ms": 1.5730723140495868,
+        "prompt_per_second": 635.6986840774555,
+        "predicted_n": 40,
+        "predicted_ms": 1686.832,
+        "predicted_per_token_ms": 43.252102564102564,
+        "predicted_per_second": 23.12026331015774
+      },
+      "query_seconds": 0.09465159199316986
+    },
+    {
+      "text": "For my review, show wells without old WDSS records and with mud records and without core samples that are within discoveries classified as condensate and whose included in discovery name contains 6608/10-6 Svale.",
+      "seconds": 4.931088002995239,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Wells",
+          "Discoveries"
+        ],
+        "where": [
+          "\"old_wdss\" = CAST(0 AS SMALLINT) AND \"mud\" = CAST(1 AS SMALLINT) AND \"core_sample\" = 'NO'",
+          "\"discovery_type\" = CAST(5 AS INT) AND \"included_in_discovery_name\" ILIKE '%6608/10-6 Svale%'"
+        ],
+        "relations": [
+          "within"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Wells",
+          "Discoveries"
+        ],
+        "where": [
+          "\"old_wdss\" = CAST(0 AS SMALLINT) AND \"mud\" = CAST(1 AS SMALLINT) AND \"core_sample\" = 'NO'",
+          "\"discovery_type\" = CAST(5 AS INT) AND \"included_in_discovery_name\" ILIKE '%6608/10-6 Svale%'"
+        ],
+        "relations": [
+          "within"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 182,
+        "prompt_n": 508,
+        "prompt_ms": 773.477,
+        "prompt_per_token_ms": 1.5225925196850394,
+        "prompt_per_second": 656.7745388679948,
+        "predicted_n": 94,
+        "predicted_ms": 4044.306,
+        "predicted_per_token_ms": 43.48716129032258,
+        "predicted_per_second": 22.995292641061283
+      },
+      "query_seconds": 0.08854496300045867
+    },
+    {
+      "text": "Which wells without core samples and without formation tops that intersect discoveries whose field activity status is POST-COP and reported by NL Oil and GAS Portal?",
+      "seconds": 3.7578554610081483,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Wells",
+          "Discoveries"
+        ],
+        "where": [
+          "\"core_sample\" = 'NO' AND \"formation_tops\" = CAST(0 AS SMALLINT)",
+          "\"field_current_activity_status\" = 'POST-COP' AND \"source\" = 'NLOG'"
+        ],
+        "relations": [
+          "intersects"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Wells",
+          "Discoveries"
+        ],
+        "where": [
+          "\"core_sample\" = 'NO' AND \"formation_tops\" = CAST(0 AS SMALLINT)",
+          "\"field_current_activity_status\" = 'POST-COP' AND \"source\" = 'NLOG'"
+        ],
+        "relations": [
+          "intersects"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 182,
+        "prompt_n": 490,
+        "prompt_ms": 765.075,
+        "prompt_per_token_ms": 1.5613775510204082,
+        "prompt_per_second": 640.4600856125215,
+        "predicted_n": 67,
+        "predicted_ms": 2892.239,
+        "predicted_per_token_ms": 43.82180303030303,
+        "predicted_per_second": 22.819690903829176
+      },
+      "query_seconds": 0.08422095500282012
+    },
+    {
+      "text": "I need the wells classified as 'gas/condensate shows' that are no more than 2 kilometers from an oil pipeline and fall inside a discovery classified as 'gas/condensate'.",
+      "seconds": 3.974140458012698,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Wells",
+          "Pipelines",
+          "Discoveries"
+        ],
+        "where": [
+          "\"content_type\" = CAST(11 AS SMALLINT)",
+          "\"PipelinesType\" = CAST(4 AS SMALLINT)",
+          "\"discovery_type\" = CAST(2 AS INT)"
+        ],
+        "relations": [
+          "withinDistance 2 kilometers",
+          "within"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Wells",
+          "Pipelines",
+          "Discoveries"
+        ],
+        "where": [
+          "\"content_type\" = CAST(11 AS SMALLINT)",
+          "\"PipelinesType\" = CAST(4 AS SMALLINT)",
+          "\"discovery_type\" = CAST(2 AS INT)"
+        ],
+        "relations": [
+          "withinDistance 2 kilometers",
+          "within"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 182,
+        "prompt_n": 501,
+        "prompt_ms": 769.72,
+        "prompt_per_token_ms": 1.5363672654690619,
+        "prompt_per_second": 650.8860364807982,
+        "predicted_n": 72,
+        "predicted_ms": 3093.379,
+        "predicted_per_token_ms": 43.56871830985915,
+        "predicted_per_second": 22.952247364451623
+      },
+      "query_seconds": 0.08916545400279574
+    },
+    {
+      "text": "wells classified as 'shows' that fall inside an unknown discovery and are within 30.5 kilometers of an oil pipeline",
+      "seconds": 4.026252514013322,
+      "raw_exact": true,
+      "compiled_exact": true,
+      "feln": {
+        "layers": [
+          "Wells",
+          "Discoveries",
+          "Pipelines"
+        ],
+        "where": [
+          "\"content_type\" = CAST(9 AS SMALLINT)",
+          "\"discovery_type\" = CAST(-1 AS INT)",
+          "\"PipelinesType\" = CAST(4 AS SMALLINT)"
+        ],
+        "relations": [
+          "within",
+          "withinDistance 30.5 kilometers"
+        ]
+      },
+      "expected": {
+        "layers": [
+          "Wells",
+          "Discoveries",
+          "Pipelines"
+        ],
+        "where": [
+          "\"content_type\" = CAST(9 AS SMALLINT)",
+          "\"discovery_type\" = CAST(-1 AS INT)",
+          "\"PipelinesType\" = CAST(4 AS SMALLINT)"
+        ],
+        "relations": [
+          "within",
+          "withinDistance 30.5 kilometers"
+        ]
+      },
+      "count": 0,
+      "model_timings": {
+        "cache_n": 182,
+        "prompt_n": 487,
+        "prompt_ms": 757.998,
+        "prompt_per_token_ms": 1.556464065708419,
+        "prompt_per_second": 642.4819062847131,
+        "predicted_n": 74,
+        "predicted_ms": 3159.628,
+        "predicted_per_token_ms": 43.282575342465755,
+        "predicted_per_second": 23.103985659071256
+      },
+      "query_seconds": 0.09055930101021659
+    }
+  ]
+}

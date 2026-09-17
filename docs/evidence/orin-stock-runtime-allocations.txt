@@ -1,0 +1,2 @@
+/data/feln-qwen-20260917/logs/baseline.log:0.03.736.592 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'
+/data/feln-qwen-20260917/logs/candidate27.log:0.14.366.227 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'

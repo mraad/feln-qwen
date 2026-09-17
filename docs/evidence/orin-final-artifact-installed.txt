@@ -1,0 +1,59 @@
+Thu Sep 17 12:44:27 UTC 2026
+7401eb1746a82814db8e5179242c824f9c89cc9f3eca419a15b3444ec309af69  model.gguf
+bf176393f6745628d084fdd0564be8399507222215a44dc6a66bfe77cb94d6c8  NorthSea.ddb
+9097b04a813d977371ad757fcf3e9ca9a95306a8a084d4f022a69a259e828f30  serving/feln-qwen-model.service
+fddeb187ac4758fabcf325c8b6da3dd5905852d458479190da267f0fb3fbb1ff  serving/feln-qwen-app.service
+enabled
+enabled
+ExecStart={ path=/data/src/llama.cpp/build/bin/llama-server ; argv[]=/data/src/llama.cpp/build/bin/llama-server -m /data/feln-qwen-20260917/tuned-v6-text-q4_k_m.gguf -c 4096 -np 1 -ngl 99 --host 127.0.0.1 --port 18096 --no-webui ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }
+MemTotal:       64387260 kB
+MemFree:        20346040 kB
+MemAvailable:   53970404 kB
+Buffers:          131676 kB
+Cached:         33391192 kB
+SwapCached:           32 kB
+Active:         21906076 kB
+Inactive:       12383812 kB
+Active(anon):      11780 kB
+Inactive(anon):   805304 kB
+Active(file):   21894296 kB
+Inactive(file): 11578508 kB
+Unevictable:       28016 kB
+Mlocked:               0 kB
+SwapTotal:       2097148 kB
+SwapFree:        2095612 kB
+Dirty:                28 kB
+Writeback:             0 kB
+AnonPages:        793104 kB
+Mapped:           167112 kB
+Shmem:             22048 kB
+KReclaimable:     787660 kB
+Slab:             974376 kB
+SReclaimable:     787660 kB
+SUnreclaim:       186716 kB
+KernelStack:        6288 kB
+PageTables:        10148 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    34290776 kB
+Committed_AS:    2405968 kB
+VmallocTotal:   133141626880 kB
+VmallocUsed:       57472 kB
+VmallocChunk:          0 kB
+Percpu:             6288 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    626688 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:         524288 kB
+CmaFree:              68 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB

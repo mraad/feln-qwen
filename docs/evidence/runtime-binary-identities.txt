@@ -1,0 +1,10 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+Measured by sha256sum and python --version on 2026-09-17.
+
+Orin:
+70d2cd6d38b86a3059e03e18442ea8f3b370808c5e8e2b2d44088c18f7aef60e  /data/src/llama.cpp/build/bin/llama-server
+/data/feln-qwen-20260917/venv/bin/python: Python 3.12.3
+
+RTX:
+a5135290e024684142936afbefada42d0904780709726c10513de7565b8f35d8  ${LLAMA_CPP_DIR}/build/bin/llama-quantize
+${TRAIN_VENV}/bin/python: Python 3.12.13

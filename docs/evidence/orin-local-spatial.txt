@@ -1,0 +1,1 @@
+{"ready": true, "model_url": "http://127.0.0.1:18090", "spatial_execution": true}

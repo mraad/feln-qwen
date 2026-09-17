@@ -1,0 +1,81 @@
+{
+  "n": 90,
+  "records_sha256": "e212a0fe906517424fc4756faf2ecf39b905406fc8c4779b13bface19001dc89",
+  "evaluated_records_sha256": "1ee948cb60a181520259e3bffa5ba00d258f9177e7375bf8f5ba97202a6877ba",
+  "selection_subset": true,
+  "model": "None",
+  "adapter": "None",
+  "url": "http://127.0.0.1:18095",
+  "elapsed_seconds": 1351.8246987110033,
+  "raw_exact": 19,
+  "compiled_exact": 26,
+  "valid": 64,
+  "slices": {
+    "Layers.json": {
+      "n": 66,
+      "raw_exact": 13,
+      "compiled_exact": 14
+    },
+    "Discoveries:1": {
+      "n": 10,
+      "raw_exact": 6,
+      "compiled_exact": 6
+    },
+    "OKF": {
+      "n": 4,
+      "raw_exact": 3,
+      "compiled_exact": 3
+    },
+    "FELN.json": {
+      "n": 20,
+      "raw_exact": 3,
+      "compiled_exact": 9
+    },
+    "Discoveries:2": {
+      "n": 10,
+      "raw_exact": 0,
+      "compiled_exact": 0
+    },
+    "Discoveries:3": {
+      "n": 10,
+      "raw_exact": 0,
+      "compiled_exact": 0
+    },
+    "Pipelines:1": {
+      "n": 10,
+      "raw_exact": 6,
+      "compiled_exact": 7
+    },
+    "Pipelines:2": {
+      "n": 10,
+      "raw_exact": 2,
+      "compiled_exact": 4
+    },
+    "Pipelines:3": {
+      "n": 10,
+      "raw_exact": 0,
+      "compiled_exact": 1
+    },
+    "Wells:1": {
+      "n": 10,
+      "raw_exact": 3,
+      "compiled_exact": 3
+    },
+    "Wells:2": {
+      "n": 10,
+      "raw_exact": 1,
+      "compiled_exact": 4
+    },
+    "Wells:3": {
+      "n": 10,
+      "raw_exact": 1,
+      "compiled_exact": 1
+    }
+  },
+  "raw_exact_definition": "schema-valid raw output compared by FELN.same; not byte equality",
+  "first_batch_seconds": 10.804567757004406,
+  "warm_p50_seconds": 14.346551675000228,
+  "warm_p95_seconds": 21.32526845100074,
+  "requests_per_second": 0.06657666967344537,
+  "timing_scope": "sequential HTTP"
+}

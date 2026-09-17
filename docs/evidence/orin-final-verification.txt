@@ -1,0 +1,34 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+Thu Sep 17 13:14:14 UTC 2026
+{"ready": true, "model_url": "http://127.0.0.1:18092", "spatial_execution": true}MainPID=123809
+ExecMainStatus=0
+MemoryCurrent=633712640
+MemoryPeak=635809792
+Id=feln-qwen-model.service
+ActiveState=active
+SubState=running
+UnitFileState=enabled
+
+MainPID=123810
+ExecMainStatus=0
+MemoryCurrent=131309568
+MemoryPeak=175169536
+Id=feln-qwen-app.service
+ActiveState=active
+SubState=running
+UnitFileState=enabled
+7401eb1746a82814db8e5179242c824f9c89cc9f3eca419a15b3444ec309af69  model.gguf
+bf176393f6745628d084fdd0564be8399507222215a44dc6a66bfe77cb94d6c8  NorthSea.ddb
+716e358aace97d82256b20a492e054ffe21c439dfce93fb9093abe0b6d8124e8  bundle/inference_config.json
+99e72e59c723fb71851623b16f95da06857a668b6058e5c44f09cd5d1e22431e  bundle/Layers.json
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+LISTEN 0      5          127.0.0.1:18091      0.0.0.0:*    users:(("python",pid=123810,fd=3))
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+LISTEN 0      512        127.0.0.1:18092      0.0.0.0:*    users:(("llama-server",pid=123809,fd=12))
+Recv-Q Send-Q Local Address:Port Peer Address:Port Process
+0      0          <orin-address>:22      <mac-address>:59162
+123809 /data/src/llama.cpp/build/bin/llama-server -m /data/feln-qwen-20260917/model.gguf -c 4096 -np 1 -ngl 99 --host 127.0.0.1 --port 18092 --no-webui
+125812 bash -c date -u cd /data/feln-qwen-20260917 curl --fail --silent --show-error http://127.0.0.1:18091/health systemctl show feln-qwen-model.service feln-qwen-app.service -p Id -p MainPID -p ActiveState -p SubState -p UnitFileState -p ExecMainStatus -p MemoryCurrent -p MemoryPeak sha256sum model.gguf NorthSea.ddb bundle/inference_config.json bundle/Layers.json ss -ltnp sport = :18091 ss -ltnp sport = :18092 ss -tnp state established pgrep -af llama-server free -b
+               total        used        free      shared  buff/cache   available
+Mem:     65932554240 10734870528 20748394496    22564864 35151925248 55197683712
+Swap:     2147479552     1572864  2145906688

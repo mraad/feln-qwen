@@ -1,0 +1,20 @@
+{
+  "model_id": "Qwen/Qwen3.5-9B",
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "tokenizer_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "checkpoint": "full-v6/checkpoint-600",
+  "adapter_sha256": "e60a7c4abe38383c0e6d3e3f6525779242fef8dd4d0a6e1a6842741bfdd7a76b",
+  "gguf": "tuned-v6-text-q4_k_m.gguf",
+  "quantization": "Q4_K_M",
+  "gguf_bytes_measured": 5629108640,
+  "gguf_sha256_workstation": "7401eb1746a82814db8e5179242c824f9c89cc9f3eca419a15b3444ec309af69",
+  "merge_dtype": "FP32",
+  "pre_quantization_dtype": "FP16",
+  "mtp_num_hidden_layers": 0,
+  "converter_option": "--no-mtp",
+  "load_probe": "PASS: RTX llama-server CUDA, context 4096, one slot, all layers offloaded",
+  "validation_status": "PASS: 673/673 strict and compiled exact on full validation; Q4_K_M selected",
+  "prompt_configuration_sha256": "716e358aace97d82256b20a492e054ffe21c439dfce93fb9093abe0b6d8124e8",
+  "validation_evidence": "tuned-text-q4-val-v6.json",
+  "quantize_seconds_measured": 34.11678
+}

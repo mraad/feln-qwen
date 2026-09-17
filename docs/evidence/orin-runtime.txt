@@ -1,0 +1,24 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+/data/src/llama.cpp/tools/llama-bench
+/data/src/llama.cpp/build/tools/llama-bench
+/data/src/llama.cpp/build/bin/llama-server
+total 29G
+-rw-rw-r-- 1 feln feln  23G Sep  9 21:55 Nemotron-3-Nano-30B-A3B-Q4_K_M.gguf
+-rw-rw-r-- 1 feln feln 5.8G Sep 10 00:14 Qwen_Qwen3.5-9B-Q4_K_M.gguf
+-rw-rw-r-- 1 feln feln  37K Sep  9 21:55 download-nemotron-parallel.log
+-rw-rw-r-- 1 feln feln 8.8K Sep  9 21:50 download-nemotron.log
+-rw-rw-r-- 1 feln feln  24K Sep 10 00:14 download-qwen9-restore.log
+-rw-rw-r-- 1 feln feln  39K Sep  9 21:40 download-qwen9.log
+-rw-rw-r-- 1 feln feln 9.8K Sep  9 20:59 download.log
+-rw-rw-r-- 1 feln feln 2.2K Sep  9 21:50 nemotron-download.conf
+-rw-rw-r-- 1 feln feln  68K Sep  9 21:49 nemotron-model-card.md
+-rw-rw-r-- 1 feln feln  21K Sep  9 21:48 nemotron-repository.json
+-rw-rw-r-- 1 feln feln 1.1K Sep 10 00:11 qwen9-download.conf
+-rw-rw-r-- 1 feln feln  16K Sep 10 00:10 qwen9-repository.json
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2026 NVIDIA Corporation
+Built on Fri_May_08_10:52:52_AM_PDT_2026
+Cuda compilation tools, release 13.2, V13.2.86
+Build cuda_13.2.r13.2/compiler.37953736_0
+434ddbbc0e30522e897670681e503b797c12b7c1
+{'transformers': '4.57.6', 'torch': '2.14.0+cu132', 'huggingface-hub': '0.36.2'}

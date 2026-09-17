@@ -1,0 +1,11 @@
+Measured via sha256sum on both machines, 2026-09-17:
+
+716e358aace97d82256b20a492e054ffe21c439dfce93fb9093abe0b6d8124e8  Orin bundle/inference_config.json
+716e358aace97d82256b20a492e054ffe21c439dfce93fb9093abe0b6d8124e8  Orin stock-bundle/inference_config.json
+716e358aace97d82256b20a492e054ffe21c439dfce93fb9093abe0b6d8124e8  RTX stock-bundle/inference_config.json
+99e72e59c723fb71851623b16f95da06857a668b6058e5c44f09cd5d1e22431e  Orin bundle/Layers.json
+99e72e59c723fb71851623b16f95da06857a668b6058e5c44f09cd5d1e22431e  Orin stock-bundle/Layers.json
+99e72e59c723fb71851623b16f95da06857a668b6058e5c44f09cd5d1e22431e  RTX data-20260917-v6/Layers.json
+
+Paths are relative to /data/feln-qwen-20260917 on Orin and
+/opt/dlami/nvme/feln-qwen-20260917 on RTX.

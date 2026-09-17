@@ -1,0 +1,1 @@
+{'count': 1, 'query_seconds': 0.12546970899711596, 'layer': {'name': 'Wells', 'stype': 'Point', 'display': 'well_name', 'subtype': 'content_type'}}

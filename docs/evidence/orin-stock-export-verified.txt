@@ -1,0 +1,4 @@
+390a5cb68ed41352024860a83d2e1999606ab0447541e469942afaa05963b73f  /data/feln-qwen-20260917/stock-q4_k_m.gguf
+9.2G	/data/feln-qwen-20260917/candidate27
+200/623 raw=0.1100
+225/623 raw=0.1022

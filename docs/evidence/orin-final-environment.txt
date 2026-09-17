@@ -1,0 +1,38 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+# R39 (release), REVISION: 2.1, GCID: 46758480, BOARD: generic, EABI: aarch64, DATE: Fri Aug  7 05:54:22 AM UTC 2026
+# KERNEL_VARIANT: oot
+TARGET_USERSPACE_LIB_DIR=nvidia
+TARGET_USERSPACE_LIB_DIR_PATH=usr/lib/aarch64-linux-gnu/nvidia
+Thu Sep 17 10:59:59 2026
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.78                 Driver Version: 595.78         CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Orin (nvgpu)                  N/A  |   N/A              N/A |                  N/A |
+| N/A   N/A  N/A             N/A  /  N/A  | Not Supported          |     N/A          N/A |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Filesystem         1B-blocks         Used     Available Use% Mounted on
+/dev/mmcblk0p1   57806061568  10879041536   43957452800  20% /
+/dev/nvme0n1p1 3936818806784 108586582016 3828215447552   3% /data
+annotated-types==0.8.0
+duckdb==1.5.3
+feln @ file:///data/feln-qwen-20260917/feln
+layers-json @ ${LAYERS_JSON_REPOSITORY}@32d6d4ea57975a05552f2ade840cf2085ff25ed1
+numpy==2.5.3
+pydantic==2.13.5
+pydantic_core==2.46.5
+sqlglot==30.18.0
+typing-inspection==0.4.4
+typing_extensions==4.16.0

@@ -1,0 +1,21 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+rtx-training
+name, memory.total [MiB], memory.free [MiB], driver_version
+NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB, 97252 MiB, 595.58.03
+NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB, 97252 MiB, 595.58.03
+               total        used        free      shared  buff/cache   available
+Mem:     536562638848 11285569536 225439399936     3371008 304359497728 525277069312
+Swap:              0           0           0
+Filesystem                         1B-blocks         Used     Available Use% Mounted on
+/dev/root                       531415142400 483600572416   47797792768  92% /
+/dev/mapper/vg.01-lv_ephemeral 3739182850048   6372286464 3542793912320   1% /opt/dlami/nvme
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2026 NVIDIA Corporation
+Built on Mon_Mar_02_09:52:23_PM_PST_2026
+Cuda compilation tools, release 13.2, V13.2.51
+Build cuda_13.2.r13.2/compiler.37434383_0
+drwxrwxrwt 15 root root 4096 Sep 14 19:17 /opt/dlami/nvme
+[Unrelated home-directory listing omitted.]
+${LLAMA_CPP_DIR}/.venv-convert/pyvenv.cfg
+${LLAMA_CPP_DIR}/build/bin/llama-server
+${TRAIN_VENV}/pyvenv.cfg

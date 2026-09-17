@@ -1,0 +1,17 @@
+{
+  "model_id": "Qwen/Qwen3.5-9B",
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "tokenizer_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "checkpoint": "full-v6/checkpoint-600",
+  "adapter_bytes_measured": 346294736,
+  "adapter_sha256": "e60a7c4abe38383c0e6d3e3f6525779242fef8dd4d0a6e1a6842741bfdd7a76b",
+  "gguf": "tuned-v6-q4_k_m.gguf",
+  "quantization": "Q4_K_M",
+  "gguf_bytes_measured": 5629108736,
+  "gguf_sha256_workstation": "e60e7adcd63aa336839ed07692762b5663b75ebd352df4f704c196d1661ec730",
+  "merge_dtype": "FP32",
+  "pre_quantization_dtype": "FP16",
+  "quantize_seconds_measured": 34.28436,
+  "prompt_configuration_sha256": "716e358aace97d82256b20a492e054ffe21c439dfce93fb9093abe0b6d8124e8",
+  "status": "FAILED LOAD: advertises missing MTP block; never deployed"
+}

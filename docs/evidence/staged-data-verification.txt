@@ -1,0 +1,12 @@
+# Sanitized evidence: account, host, path and repository identifiers replaced; see ../CONFIGURATION.md.
+Measured 2026-09-17. Both commands completed with exit code 0 and no assertion failure.
+
+RTX, /opt/dlami/nvme/feln-qwen-20260917:
+PYTHONPATH=$PWD/app:$PWD/feln ${TRAIN_VENV}/bin/python training/prepare.py --output data-20260917-v6 --verify
+
+Orin, /data/feln-qwen-20260917:
+PYTHONPATH=$PWD/app venv/bin/python - --output data-20260917-v6 --verify
+(stdin was the repository's training/prepare.py, transmitted without creating or replacing a remote script.)
+
+Checks: schema validation, normalized question uniqueness, query-family disjointness,
+canonical FELN-target disjointness, provenance presence, and every manifest artifact hash.

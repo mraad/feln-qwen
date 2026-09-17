@@ -1,0 +1,6 @@
+{"ready": true, "model_url": "http://127.0.0.1:18090", "spatial_execution": true}MainPID=64337
+MemoryCurrent=99516416
+MemoryPeak=141418496
+               total        used        free      shared  buff/cache   available
+Mem:     65932554240  9487257600 46776283136    22781952 10348191744 56445296640
+Swap:     2147479552           0  2147479552
